@@ -26,13 +26,19 @@ class Albums extends Component {
   };
   render() {
     return (
-      <div>
+      <div style={albumStyle}>
         {this.state.albums.map((album, index) => (
           <AlbumItem key={index} album={album} />
         ))}
       </div>
     );
   }
+}
+
+const albumStyle = {
+  display: 'grid',
+  gridTemplateColumns: 'repeat(3, 1fr)',
+  gridGap: '1rem'
 }
 
 export default Albums;
