@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { render } from "@testing-library/react";
 import axios from "axios";
-import AlbumItem from "./components/AlbumItem";
+import Albums from "./components/Albums";
 import "./App.css";
 
 class App extends Component {
@@ -22,7 +22,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <AlbumItem />
+        <Albums />
       </div>
     );
   }
