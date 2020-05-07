@@ -26,7 +26,16 @@ class App extends Component {
     if (!isLoaded) {
       return <div> Loading...</div>;
     } else {
-      return <div className="App">Data has been</div>;
+      return <div className="App">
+        <ul>
+          {items.map(item => (
+            <li key={item.id}>
+              Name: {item.name} | Email: {item.email}
+              {item.name}
+            </li>
+          ))};
+        </ul>
+        </div>;
     }
   }
 }
