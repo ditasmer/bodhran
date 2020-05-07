@@ -12,16 +12,17 @@ class AlbumItem extends Component {
   }
 
   render() {
+      const { artistName, collectionName, artworkUrl60 } = this.state;
     return (
       <div className="card text-center">
         <img
-          src={this.state.artworkUrl60}
+          src={artworkUrl60}
           alt=""
           className="round-img"
           style={{ width: "60px" }}
         />
-        <h3>{this.state.artistName}</h3>
-        <h3>{this.state.collectionName}</h3>
+        <h3>{artistName}</h3>
+        <h3>{collectionName}</h3>
       </div>
     );
   }

@@ -28,11 +28,11 @@ class Albums extends Component {
     return (
       <div>
         {this.state.albums.map((album, index) => (
-          <div key={index}>{album.artistName}</div>
+          <AlbumItem key={index} album={album} />
         ))}
       </div>
     );
   }
 }
 
-export default Album;
+export default Albums;
