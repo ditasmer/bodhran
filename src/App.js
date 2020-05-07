@@ -11,7 +11,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    fetch("https://jsonplaceholder.typicode.com/users")
+    fetch("https://itunes.apple.com/search?term=Queen&entity=album&limit=20")
       .then((res) => res.json())
       .then((json) => {
         this.setState({
@@ -26,16 +26,20 @@ class App extends Component {
     if (!isLoaded) {
       return <div> Loading...</div>;
     } else {
-      return <div className="App">
-        <ul>
-          {items.map(item => (
-            <li key={item.id}>
-              Name: {item.name} | Email: {item.email}
-              {item.name}
-            </li>
-          ))};
-        </ul>
-        </div>;
+      return (
+        <div className="App">
+          {items.resultCount}
+          {
+            <ul>
+              {items.results.map((item, index) => (
+                <li key={index}>
+                   {index+1}. Album: {item.collectionName} - Artist: {item.artistName}
+                </li>
+              ))}
+            </ul>
+          }
+        </div>
+      );
     }
   }
 }
