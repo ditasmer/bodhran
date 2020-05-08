@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+import myIcon from '../img/bodhran.svg';
 
 export class Navbar extends Component {
   static defaultProps = {
@@ -13,10 +14,16 @@ export class Navbar extends Component {
   render() {
     return (
       <nav className="navbar bg-primary">
+        <img src={myIcon} style={iconStyle} />
         <h1>{this.props.title}</h1>
       </nav>
     );
   }
 }
+const iconStyle = {
+  width: "3em",
+  margin: "0.2em"
+  
+};
 
 export default Navbar;
