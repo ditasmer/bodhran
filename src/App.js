@@ -2,14 +2,14 @@ import React, { Component } from "react";
 import { render } from "@testing-library/react";
 import axios from "axios";
 import Albums from "./components/Albums";
-import Navbar from './components/Navbar';
-import Search from './components/Search';
+import Navbar from "./components/Navbar";
+import Search from "./components/Search";
 import "./App.css";
 
 class App extends Component {
   state = {
     albums: [],
-    loading: false
+    loading: false,
   };
 
   async componentDidMount() {
@@ -21,15 +21,20 @@ class App extends Component {
 
     console.log(res.data);
     this.setState({ albums: res.data.results, loading: false });
-    console.log(this.state.albums)
+    console.log(this.state.albums);
   }
+
+  searchAlbums = (text) => {
+    console.log(text);
+  };
+
   render() {
     return (
       <div className="App">
         <Navbar />
-        <div className='container'> 
-        <Search />
-        <Albums loading={this.state.loading} albums={this.state.albums} />
+        <div className="container">
+          <Search searchAlbums={this.searchAlbums} />
+          <Albums loading={this.state.loading} albums={this.state.albums} />
         </div>
       </div>
     );
@@ -37,4 +42,3 @@ class App extends Component {
 }
 
 export default App;
-
