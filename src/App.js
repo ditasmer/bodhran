@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { render } from "@testing-library/react";
 import axios from "axios";
 import Albums from "./components/Albums";
+import Navbar from './components/Navbar';
 import "./App.css";
 
 class App extends Component {
@@ -24,6 +25,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <Navbar />
         <div className='container'> 
         <Albums loading={this.state.loading} albums={this.state.albums} />
         </div>

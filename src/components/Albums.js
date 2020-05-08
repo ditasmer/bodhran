@@ -16,7 +16,7 @@ class Albums extends Component {
 
 const albumStyle = {
   display: 'grid',
-  gridTemplateColumns: 'repeat(3, 1fr)',
+  gridTemplateColumns: 'repeat(4, 1fr)',
   gridGap: '1rem'
 }
 
