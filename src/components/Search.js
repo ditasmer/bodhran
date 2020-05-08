@@ -1,8 +1,13 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 
 export class Search extends Component {
   state = {
     text: "",
+  };
+
+  static propTypes = {
+    searchAlbums: PropTypes.func.isRequired,
   };
 
   onSubmit = (e) => {
