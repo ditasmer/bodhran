@@ -7,7 +7,7 @@ import "./App.css";
 class App extends Component {
   state = {
     albums: [],
-    loading: false,
+    loading: false
   };
 
   async componentDidMount() {
@@ -18,12 +18,14 @@ class App extends Component {
     );
 
     console.log(res.data);
+    this.setState({ albums: res.data.results, loading: false });
+    console.log(this.state.albums)
   }
   render() {
     return (
       <div className="App">
         <div className='container'> 
-        <Albums />
+        <Albums loading={this.state.loading} albums={this.state.albums} />
         </div>
       </div>
     );
