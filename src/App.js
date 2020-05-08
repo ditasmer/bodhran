@@ -3,6 +3,7 @@ import { render } from "@testing-library/react";
 import axios from "axios";
 import Albums from "./components/Albums";
 import Navbar from './components/Navbar';
+import Search from './components/Search';
 import "./App.css";
 
 class App extends Component {
@@ -27,6 +28,7 @@ class App extends Component {
       <div className="App">
         <Navbar />
         <div className='container'> 
+        <Search />
         <Albums loading={this.state.loading} albums={this.state.albums} />
         </div>
       </div>
@@ -35,3 +37,4 @@ class App extends Component {
 }
 
 export default App;
+
