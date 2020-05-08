@@ -12,20 +12,35 @@ class App extends Component {
     loading: false,
   };
 
-  async componentDidMount() {
-    this.setState({ loading: true });
+  // async componentDidMount() {
+  //   this.setState({ loading: true });
 
+  //   const res = await axios.get(
+  //     "https://itunes.apple.com/search?term=Queen&entity=album&limit=20"
+  //   );
+
+  //   console.log(res.data);
+  //   this.setState({ albums: res.data.results, loading: false });
+  //   console.log(this.state.albums);
+  // }
+
+  //Search itunes Albums
+  searchAlbums = async text => {
+    console.log(text);
+    this.setState({ loading: true });
     const res = await axios.get(
-      "https://itunes.apple.com/search?term=Queen&entity=album&limit=20"
+      "https://itunes.apple.com/search", {
+        params: {
+          term: text,
+          entity: 'album',
+          limit: 20
+        }
+      }
     );
 
     console.log(res.data);
     this.setState({ albums: res.data.results, loading: false });
     console.log(this.state.albums);
-  }
-
-  searchAlbums = (text) => {
-    console.log(text);
   };
 
   render() {
