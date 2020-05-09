@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { render } from "@testing-library/react";
 import axios from "axios";
 import Albums from "./components/Albums";
 import Navbar from "./components/Navbar";
