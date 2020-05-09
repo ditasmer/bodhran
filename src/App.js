@@ -3,7 +3,7 @@ import axios from "axios";
 import Albums from "./components/Albums";
 import Navbar from "./components/Navbar";
 import Search from "./components/Search";
-import "./App.css";
+import "./App.scss";
 
 class App extends Component {
   state = {
