@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Comfortaa'); 
-
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa");
 
 .App {
   text-align: center;
@@ -8,12 +7,6 @@
 .App-logo {
   height: 40vmin;
   pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
 }
 
 .App-header {
@@ -31,23 +24,12 @@
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
 /* Global Styles */
-:root {
-  --primary-color: #35addc;
-  --dark-color: #333333;
-  --light-color: #f4f4f4;
-  --danger-color: #dc3545;
-  --success-color: #28a745;
-}
+$primaryColor: #61dafb;
+$dark-color: #333333;
+$light-color: #f4f4f4;
+$white-color: #ffffff;
+$black-color: #000000;
 
 * {
   box-sizing: border-box;
@@ -56,15 +38,15 @@
 }
 
 body {
-  font-family: 'Comfortaa', sans-serif;
+  font-family: "Comfortaa", sans-serif;
   font-size: 1rem;
   line-height: 1.6;
-  background-color: #fff;
-  color: #333;
+  background-color: $white-color;
+  color: $dark-color;
 }
 
 a {
-  color: var(--primary-color);
+  color: $primaryColor;
   text-decoration: none;
 }
 
@@ -80,7 +62,6 @@ img {
   width: 100%;
 }
 
-
 /* Navbar */
 .navbar {
   display: flex;
@@ -93,35 +74,13 @@ img {
   margin-bottom: 1rem;
 }
 
-.navbar ul {
-  display: flex;
-}
-
-.navbar a {
-  color: #fff;
-  padding: 0.45rem;
-  margin: 0 0.25rem;
-}
-
-.navbar a:hover {
-  color: var(--light-color);
-}
-
-.navbar .welcome span {
-  margin-right: 0.6rem;
-}
-
 /* Grid */
 .btn-primary,
 .bg-primary,
 .badge-primary,
 .alert-primary {
-  background: var(--primary-color);
-  color: rgb(0, 0, 0);
-}
-
-.round-img {
-  border-radius: 50%;
+  background: $primaryColor;
+  color: $black-color;
 }
 
 .btn-block {
@@ -133,8 +92,8 @@ img {
 .bg-dark,
 .badge-dark,
 .alert-dark {
-  background: var(--dark-color);
-  color: #fff;
+  background: $dark-color;
+  color: $white-color;
 }
 
 /* Utilities */
@@ -146,10 +105,12 @@ img {
 }
 
 /* Cards */
+$card-line: #ccc;
 .card {
   padding: 1rem;
-  border: #ccc 1px dotted;
+  border: $card-line 1px double;
   margin: 0.7rem 0;
+  background: $light-color;
 }
 
 /* Text Styles*/
@@ -168,10 +129,7 @@ input {
   color: #888;
 }
 
-input[type='text'],
-input[type='email'],
-input[type='password'],
-input[type='date'],
+input[type="text"],
 select,
 textarea {
   display: block;
@@ -179,19 +137,10 @@ textarea {
   padding: 0.4rem;
   font-size: 1.2rem;
   border: 1px solid #ccc;
-}
-
-input[type='submit'],
-button {
   font: inherit;
 }
 
-table th,
-table td {
-  padding: 1rem;
-  text-align: left;
-}
-
-table th {
-  background: var(--light-color);
+input[type="submit"],
+button {
+  font: inherit;
 }
