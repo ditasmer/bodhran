@@ -9,7 +9,7 @@ class Albums extends Component {
       return <Spinner />;
     } else {
       return (
-        <div style={albumVerticalListStyle}>
+        <div style={albumStyle}>
           {this.props.albums.map((album, index) => (
             <AlbumItem key={index} album={album} />
           ))}
@@ -29,10 +29,10 @@ const albumStyle = {
   gridTemplateColumns: "repeat(4, 1fr)",
   gridGap: "1rem",
 };
-const albumVerticalListStyle = {
-  display: "block",
-  gridGap: "1rem",
-  float: "center",
-};
+// const albumVerticalListStyle = {
+//   display: "block",
+//   gridGap: "1rem",
+//   float: "center",
+// };
 
 export default Albums;

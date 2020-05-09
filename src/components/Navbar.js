@@ -14,7 +14,7 @@ export class Navbar extends Component {
   render() {
     return (
       <nav className="navbar bg-primary">
-        <img src={myIcon} style={iconStyle} />
+        <img src={myIcon} style={iconStyle} alt="true"/>
         <h1>{this.props.title}</h1>
       </nav>
     );
@@ -23,7 +23,7 @@ export class Navbar extends Component {
 const iconStyle = {
   width: "3em",
   margin: "0.2em"
-  
+   
 };
 
 export default Navbar;
