@@ -12,8 +12,8 @@ class AlbumItem extends Component {
           alt=''
           style={{ width: '60px' }}
         />
-        <h3>{artistName}</h3>
-        <h3>{collectionName}</h3>
+        <h4>{artistName}</h4>
+        <h5>{collectionName}</h5>
       </div>
     );
   }
