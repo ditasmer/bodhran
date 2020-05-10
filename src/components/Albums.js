@@ -21,7 +21,8 @@ class Albums extends Component {
 
 Albums.propTypes = {
   albums: PropTypes.array.isRequired,
-  loading: PropTypes.bool.isRequired
+  loading: PropTypes.bool.isRequired,
+  totalItemsCount: PropTypes.number.isRequired,
 }
 
 const albumStyle = {
