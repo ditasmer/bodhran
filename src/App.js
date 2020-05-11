@@ -6,14 +6,15 @@ import Search from "./components/Search";
 import "./App.scss";
 import ReactDOM from "react-dom";
 import Pagination from "react-js-pagination";
-// require("bootstrap/less/bootstrap.less");
-import "bootstrap/dist/css/bootstrap.min.css";
+//import { Pagination } from 'reactstrap';
+//require("bootstrap/less/bootstrap.less");
+//import "bootstrap/dist/css/bootstrap.min.css";
 
 class App extends Component {
   state = {
     albums: [],
     loading: false,
-    activePage: 15,
+    activePage: 1,
     // itemClass:"page-item",
     // linkClass:"page-link",
   };
@@ -32,9 +33,10 @@ class App extends Component {
       }
     );
 
+    console.log('data:');
     console.log(res.data);
-    console.log(res.data.resultCount);
     this.setState({ albums: res.data.results, loading: false });
+    console.log('albums');
     console.log(this.state.albums);
     
   };
@@ -51,6 +53,7 @@ class App extends Component {
         <Navbar />
         <div className="container">
           <Search searchAlbums={this.searchAlbums} />
+          { <div className="pagination pagination-sm">
           <Pagination
           activePage={this.state.activePage}
           itemsCountPerPage={20}
@@ -58,12 +61,13 @@ class App extends Component {
           pageRangeDisplayed={10}
           onChange={this.handlePageChange.bind(this)}
           />
-          <Albums loading={this.state.loading} albums={this.state.albums} totalItemsCount={this.state.albums.length} />
+          </div> }
+         
+          <Albums loading={this.state.loading} albums={this.state.albums} activePage={this.state.activePage} />
         </div>
       </div>
     );
   }
 }
 
-ReactDOM.render(<App />, document.getElementById("root"));
 export default App;
