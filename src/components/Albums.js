@@ -4,13 +4,26 @@ import Spinner from "./Spinner";
 import PropTypes from "prop-types";
 
 class Albums extends Component {
+  state = {
+    albumsSel: [],
+  };
+
   render() {
     if (this.props.loading) {
       return <Spinner />;
     } else {
+      //Split the Albums
+      console.log(Object.keys(this.props.albums).length);
+      let endAlbum = 20 * this.props.activePage;
+      let iniAlbum = endAlbum - 20;
+      console.log(`slice albums from ${iniAlbum} to ${endAlbum}`);
+      let albumsSelection = this.props.albums.slice(iniAlbum, endAlbum);
+      console.log(`selection:`);
+      console.log(albumsSelection);
+
       return (
         <div style={albumStyle}>
-          {this.props.albums.map((album, index) => (
+          {albumsSelection.map((album, index) => (
             <AlbumItem key={index} album={album} />
           ))}
         </div>
@@ -21,8 +34,9 @@ class Albums extends Component {
 
 Albums.propTypes = {
   albums: PropTypes.array.isRequired,
-  loading: PropTypes.bool.isRequired
-}
+  loading: PropTypes.bool.isRequired,
+  activePage: PropTypes.number.isRequired,
+};
 
 const albumStyle = {
   display: "grid",
