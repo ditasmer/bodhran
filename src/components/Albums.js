@@ -45,7 +45,7 @@ class Albums extends Component {
                 onClick={this.switchAlbumStyle.bind(this)}
                 className="imgbtn"
               >
-                <img src={img_button} className="icon" />
+                <img src={img_button} alt="" className="icon" />
               </button>
             </div>
           );
