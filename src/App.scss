@@ -46,12 +46,12 @@ body {
 }
 
 a {
-  color: $primaryColor;
+  color: $black-color;
   text-decoration: none;
 }
 
 a:hover {
-  color: #666;
+  color: $primaryColor;
 }
 
 // ul {
