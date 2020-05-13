@@ -2,16 +2,21 @@ import React, { Component } from "react";
 import AlbumItem from "./AlbumItem";
 import Spinner from "./Spinner";
 import PropTypes from "prop-types";
+import img_grid from "../img/img_grid.png";
+import img_list from "../img/img_list.png";
 
 class Albums extends Component {
   state = {
-    albumsSel: [],
+    gridStyle: true,
   };
+
+  switchAlbumStyle() {
+    this.setState({ gridStyle: !this.state.gridStyle });
+  }
 
   render() {
     if (this.props.loading) {
       return <Spinner />;
-    
     } else {
       //Split the Albums
       console.log(Object.keys(this.props.albums).length);
@@ -22,11 +27,30 @@ class Albums extends Component {
       console.log(`selection:`);
       console.log(albumsSelection);
 
+      //Select album style
+      console.log(this.state.gridStyle);
+      let classNameAlbumStyle = "albumVerticalListStyle text-left";
+      let img_button = img_grid;
+      if (this.state.gridStyle) {
+        classNameAlbumStyle = "albumGridStyle text-center";
+        img_button = img_list;
+      }
+
       return (
-        <div style={albumStyle}>
-          {albumsSelection.map((album, index) => (
-            <AlbumItem key={index} album={album} />
-          ))}
+        <div>
+          <div>
+            <button
+              onClick={this.switchAlbumStyle.bind(this)}
+              className="imgbtn"
+            >
+              <img src={img_button} className="icon" />
+            </button>
+          </div>
+          <div className={classNameAlbumStyle}>
+            {albumsSelection.map((album, index) => (
+              <AlbumItem key={index} album={album} />
+            ))}
+          </div>
         </div>
       );
     }
@@ -38,16 +62,5 @@ Albums.propTypes = {
   loading: PropTypes.bool.isRequired,
   activePage: PropTypes.number.isRequired,
 };
-
-const albumStyle = {
-  display: "grid",
-  gridTemplateColumns: "repeat(4, 1fr)",
-  gridGap: "1rem",
-};
-// const albumVerticalListStyle = {
-//   display: "block",
-//   gridGap: "1rem",
-//   float: "center",
-// };
 
 export default Albums;

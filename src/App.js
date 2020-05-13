@@ -28,7 +28,6 @@ class App extends Component {
     console.log("data:");
     console.log(res.data);
     this.setState({ albums: res.data.results, loading: false });
-    //console.log(this.state.albums);
   };
 
   //Paginator
@@ -39,29 +38,22 @@ class App extends Component {
 
   render() {
     //Condition to show paginator
-    //let {isPaginator} = this.state.albums.length;
-    //console.log("isPaginator:");
-    //console.log(isPaginator);
     const renderPaginator = () => {
-      if(this.state.albums.length>0){
+      if (this.state.albums.length > 0) {
         return (
           <div>
-              <Pagination
-                className="customList"
-                activePage={this.state.activePage}
-                itemsCountPerPage={20}
-                totalItemsCount={this.state.albums.length}
-                pageRangeDisplayed={10}
-                onChange={this.handlePageChange.bind(this)}
-              />
-            </div>
+            <Pagination
+              className="customList"
+              activePage={this.state.activePage}
+              itemsCountPerPage={20}
+              totalItemsCount={this.state.albums.length}
+              pageRangeDisplayed={10}
+              onChange={this.handlePageChange.bind(this)}
+            />
+          </div>
         );
-
       }
-        
-    }
-
-
+    };
 
     return (
       <div className="App">
@@ -69,16 +61,6 @@ class App extends Component {
         <div className="container">
           <Search searchAlbums={this.searchAlbums} />
           {renderPaginator()}
-            {/* <div>
-              <Pagination
-                className="customList"
-                activePage={this.state.activePage}
-                itemsCountPerPage={20}
-                totalItemsCount={this.state.albums.length}
-                pageRangeDisplayed={10}
-                onChange={this.handlePageChange.bind(this)}
-              />
-            </div> */}
           <Albums
             loading={this.state.loading}
             albums={this.state.albums}
