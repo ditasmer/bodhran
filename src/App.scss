@@ -1,4 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Comfortaa");
+// Required Bootstrap
+@import "node_modules/bootstrap/scss/functions";
+@import "node_modules/bootstrap/scss/variables";
+@import "node_modules/bootstrap/scss/mixins";
 
 .App {
   text-align: center;
@@ -54,12 +58,13 @@ a:hover {
   color: #666;
 }
 
-ul {
-  list-style: none;
-}
+// ul {
+//   list-style: none;
+// }
 
 img {
   width: 100%;
+  align-content: center;
 }
 
 /* Navbar */
@@ -111,6 +116,7 @@ $card-line: #ccc;
   border: $card-line 1px double;
   margin: 0.7rem 0;
   background: $light-color;
+  align-content: cent !important;
 }
 
 /* Text Styles*/

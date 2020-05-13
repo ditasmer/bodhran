@@ -11,6 +11,7 @@ class Albums extends Component {
   render() {
     if (this.props.loading) {
       return <Spinner />;
+    
     } else {
       //Split the Albums
       console.log(Object.keys(this.props.albums).length);
