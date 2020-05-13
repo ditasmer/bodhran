@@ -36,16 +36,25 @@ class Albums extends Component {
         img_button = img_list;
       }
 
+      //Render button grid-list style
+      const renderGridListStyle = () => {
+        if (albumsSelection.length > 0) {
+          return (
+            <div>
+              <button
+                onClick={this.switchAlbumStyle.bind(this)}
+                className="imgbtn"
+              >
+                <img src={img_button} className="icon" />
+              </button>
+            </div>
+          );
+        }
+      };
+
       return (
         <div>
-          <div>
-            <button
-              onClick={this.switchAlbumStyle.bind(this)}
-              className="imgbtn"
-            >
-              <img src={img_button} className="icon" />
-            </button>
-          </div>
+          {renderGridListStyle()}
           <div className={classNameAlbumStyle}>
             {albumsSelection.map((album, index) => (
               <AlbumItem key={index} album={album} />
